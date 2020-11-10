@@ -117,6 +117,8 @@ def setrotors():
 def inputmessage():
     global setting
     messagein=input("Input message: ")
+    messagein=messagein.replace(" ","")
+    messagein=messagein.lower()
     messagelist[:0]=messagein
     setting=0
     plugboard()
@@ -242,6 +244,8 @@ def rotateRotors():
     
 def plugboardsetup():
     global wirenum
+    global wire1,wire2,wire3,wire4,wire5,wire6,wire7,wire8,wire9,wire10
+    wired=0
     wiring=input("Would you like to wire the plugboard? (y/n) ")
     while wiring=="y":
         wire=input("Which 2 letters to wire together? ")
@@ -253,44 +257,216 @@ def plugboardsetup():
         wirenum+=1
         if wirenum==1:
             wire1[:0]=wire
+            wired+=1
             #print(wire1,'1')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==2:
             wire2[:0]=wire
+            wired+=1
             #print(wire2,'2')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==3:
             wire3[:0]=wire
+            wired+=1
             #print(wire3,'3')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==4:
             wire4[:0]=wire
+            wired+=1
             #print(wire4,'4')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==5:
             wire5[:0]=wire
+            wired+=1
             #print(wire5,'5')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==6:
             wire6[:0]=wire
+            wired+=1
             #print(wire6,'6')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==7:
             wire7[:0]=wire
+            wired+=1
             #print(wire7,'7')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==8:
             wire8[:0]=wire
+            wired+=1
             #print(wire8,'8')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==9:
             wire9[:0]=wire
+            wired+=1
             #print(wire9,'9')
             wiring=input("Add another wire? (y/n) ")
         if wirenum==10:
             wire10[:0]=wire
+            wired+=1
             #print(wire10,'10')
             wiring=input("Add another wire? (y/n) ")
+        if wired>=2:
+            for e in range(0,2):
+                #print(wire1[e],wire2[0],wire2[1])
+                if wire1[e]==wire2[0] or wire1[e]==wire2[1]:
+                    print("A letter is used more than once. Rewiring...")
+                    rewireplugs()
+            if wired>=3:
+                for e in range(0,2):
+                    #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                    if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1]:
+                        print("A letter is used more than once. Rewiring...") 
+                        rewireplugs()
+                    if wire2[e]==wire3[0] or wire2[e]==wire3[1]:
+                        print("A letter is used more than once. Rewiring...") 
+                        rewireplugs()
+                if wired>=4:
+                    for e in range(0,2):
+                        #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                        if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1]:
+                            print("A letter is used more than once. Rewiring...") 
+                            rewireplugs()
+                        if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1]:
+                            print("A letter is used more than once. Rewiring...") 
+                            rewireplugs()
+                        if wire3[e]==wire4[0] or wire3[e]==wire4[1]:
+                            print("A letter is used more than once. Rewiring...") 
+                            rewireplugs()
+                    if wired>=5:
+                        for e in range(0,2):
+                            #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                            if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1]:
+                                print("A letter is used more than once. Rewiring...") 
+                                rewireplugs()
+                            if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1]:
+                                print("A letter is used more than once. Rewiring...") 
+                                rewireplugs()
+                            if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1]:
+                                print("A letter is used more than once. Rewiring...") 
+                                rewireplugs()
+                            if wire4[e]==wire5[0] or wire4[e]==wire5[1]:
+                                print("A letter is used more than once. Rewiring...") 
+                                rewireplugs()
+                        if wired>=6:
+                            for e in range(0,2):
+                                #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                                if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1] or wire1[e]==wire6[0] or wire1[e]==wire6[1]:
+                                    print("A letter is used more than once. Rewiring...") 
+                                    rewireplugs()
+                                if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1] or wire2[e]==wire6[0] or wire2[e]==wire6[1]:
+                                    print("A letter is used more than once. Rewiring...") 
+                                    rewireplugs()
+                                if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1] or wire3[e]==wire6[0] or wire3[e]==wire6[1]:
+                                    print("A letter is used more than once. Rewiring...") 
+                                    rewireplugs()
+                                if wire4[e]==wire5[0] or wire4[e]==wire5[1] or wire4[e]==wire6[0] or wire4[e]==wire6[1]:
+                                    print("A letter is used more than once. Rewiring...") 
+                                    rewireplugs()
+                                if wire5[e]==wire6[0] or wire5[e]==wire6[1]:
+                                    print("A letter is used more than once. Rewiring...") 
+                                    rewireplugs()
+                            if wired>=7:
+                                for e in range(0,2):
+                                    #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                                    if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1] or wire1[e]==wire6[0] or wire1[e]==wire6[1] or wire1[e]==wire7[0] or wire1[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                    if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1] or wire2[e]==wire6[0] or wire2[e]==wire6[1] or wire2[e]==wire7[0] or wire2[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                    if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1] or wire3[e]==wire6[0] or wire3[e]==wire6[1] or wire3[e]==wire7[0] or wire3[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                    if wire4[e]==wire5[0] or wire4[e]==wire5[1] or wire4[e]==wire6[0] or wire4[e]==wire6[1] or wire4[e]==wire7[0] or wire4[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                    if wire5[e]==wire6[0] or wire5[e]==wire6[1] or wire5[e]==wire7[0] or wire5[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                    if wire6[e]==wire7[0] or wire6[e]==wire7[1]:
+                                        print("A letter is used more than once. Rewiring...") 
+                                        rewireplugs()
+                                if wired>=8:
+                                    for e in range(0,2):
+                                        #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                                        if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1] or wire1[e]==wire6[0] or wire1[e]==wire6[1] or wire1[e]==wire7[0] or wire1[e]==wire7[1] or wire1[e]==wire8[0] or wire1[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1] or wire2[e]==wire6[0] or wire2[e]==wire6[1] or wire2[e]==wire7[0] or wire2[e]==wire7[1] or wire2[e]==wire8[0] or wire2[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1] or wire3[e]==wire6[0] or wire3[e]==wire6[1] or wire3[e]==wire7[0] or wire3[e]==wire7[1] or wire3[e]==wire8[0] or wire3[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire4[e]==wire5[0] or wire4[e]==wire5[1] or wire4[e]==wire6[0] or wire4[e]==wire6[1] or wire4[e]==wire7[0] or wire4[e]==wire7[1] or wire4[e]==wire8[0] or wire4[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire5[e]==wire6[0] or wire5[e]==wire6[1] or wire5[e]==wire7[0] or wire5[e]==wire7[1] or wire5[e]==wire8[0] or wire5[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire6[e]==wire7[0] or wire6[e]==wire7[1] or wire6[e]==wire8[0] or wire6[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                        if wire7[e]==wire8[0] or wire7[e]==wire8[1]:
+                                            print("A letter is used more than once. Rewiring...") 
+                                            rewireplugs()
+                                    if wired>=9:
+                                        for e in range(0,2):
+                                            #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                                            if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1] or wire1[e]==wire6[0] or wire1[e]==wire6[1] or wire1[e]==wire7[0] or wire1[e]==wire7[1] or wire1[e]==wire8[0] or wire1[e]==wire8[1] or wire1[e]==wire9[0] or wire1[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...") 
+                                                rewireplugs()
+                                            if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1] or wire2[e]==wire6[0] or wire2[e]==wire6[1] or wire2[e]==wire7[0] or wire2[e]==wire7[1] or wire2[e]==wire8[0] or wire2[e]==wire8[1] or wire2[e]==wire9[0] or wire2[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...") 
+                                                rewireplugs()
+                                            if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1] or wire3[e]==wire6[0] or wire3[e]==wire6[1] or wire3[e]==wire7[0] or wire3[e]==wire7[1] or wire3[e]==wire8[0] or wire3[e]==wire8[1] or wire3[e]==wire9[0] or wire3[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...") 
+                                                rewireplugs()
+                                            if wire4[e]==wire5[0] or wire4[e]==wire5[1] or wire4[e]==wire6[0] or wire4[e]==wire6[1] or wire4[e]==wire7[0] or wire4[e]==wire7[1] or wire4[e]==wire8[0] or wire4[e]==wire8[1] or wire4[e]==wire9[0] or wire4[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...") 
+                                                rewireplugs()
+                                            if wire5[e]==wire6[0] or wire5[e]==wire6[1] or wire5[e]==wire7[0] or wire5[e]==wire7[1] or wire5[e]==wire8[0] or wire5[e]==wire8[1] or wire5[e]==wire9[0] or wire5[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...")
+                                                rewireplugs()
+                                            if wire6[e]==wire7[0] or wire6[e]==wire7[1] or wire6[e]==wire8[0] or wire6[e]==wire8[1] or wire6[e]==wire9[0] or wire6[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...") 
+                                            if wire7[e]==wire8[0] or wire7[e]==wire8[1] or wire7[e]==wire9[0] or wire7[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...")
+                                                rewireplugs()
+                                            if wire8[e]==wire9[0] or wire8[e]==wire9[1]:
+                                                print("A letter is used more than once. Rewiring...")
+                                                rewireplugs()
+                                        if wired>=10:
+                                            for e in range(0,2):
+                                                #print(wire1[e],wire2[e],wire2[0],wire2[1],wire3[0],wire3[1])
+                                                if wire1[e]==wire2[0] or wire1[e]==wire2[1] or wire1[e]==wire3[0] or wire1[e]==wire3[1] or wire1[e]==wire4[0] or wire1[e]==wire4[1] or wire1[e]==wire5[0] or wire1[e]==wire5[1] or wire1[e]==wire6[0] or wire1[e]==wire6[1] or wire1[e]==wire7[0] or wire1[e]==wire7[1] or wire1[e]==wire8[0] or wire1[e]==wire8[1] or wire1[e]==wire9[0] or wire1[e]==wire9[1] or wire1[e]==wire10[0] or wire1[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...") 
+                                                    rewireplugs()
+                                                if wire2[e]==wire3[0] or wire2[e]==wire3[1] or wire2[e]==wire4[0] or wire2[e]==wire4[1] or wire2[e]==wire5[0] or wire2[e]==wire5[1] or wire2[e]==wire6[0] or wire2[e]==wire6[1] or wire2[e]==wire7[0] or wire2[e]==wire7[1] or wire2[e]==wire8[0] or wire2[e]==wire8[1] or wire2[e]==wire9[0] or wire2[e]==wire9[1] or wire2[e]==wire10[0] or wire2[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...") 
+                                                    rewireplugs()
+                                                if wire3[e]==wire4[0] or wire3[e]==wire4[1] or wire3[e]==wire5[0] or wire3[e]==wire5[1] or wire3[e]==wire6[0] or wire3[e]==wire6[1] or wire3[e]==wire7[0] or wire3[e]==wire7[1] or wire3[e]==wire8[0] or wire3[e]==wire8[1] or wire3[e]==wire9[0] or wire3[e]==wire9[1] or wire3[e]==wire10[0] or wire3[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...") 
+                                                    rewireplugs()
+                                                if wire4[e]==wire5[0] or wire4[e]==wire5[1] or wire4[e]==wire6[0] or wire4[e]==wire6[1] or wire4[e]==wire7[0] or wire4[e]==wire7[1] or wire4[e]==wire8[0] or wire4[e]==wire8[1] or wire4[e]==wire9[0] or wire4[e]==wire9[1] or wire4[e]==wire10[0] or wire4[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                                                if wire5[e]==wire6[0] or wire5[e]==wire6[1] or wire5[e]==wire7[0] or wire5[e]==wire7[1] or wire5[e]==wire8[0] or wire5[e]==wire8[1] or wire5[e]==wire9[0] or wire5[e]==wire9[1] or wire5[e]==wire10[0] or wire5[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                                                if wire6[e]==wire7[0] or wire6[e]==wire7[1] or wire6[e]==wire8[0] or wire6[e]==wire8[1] or wire6[e]==wire9[0] or wire6[e]==wire9[1] or wire6[e]==wire10[0] or wire6[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                                                if wire7[e]==wire8[0] or wire7[e]==wire8[1] or wire7[e]==wire9[0] or wire7[e]==wire9[1] or wire7[e]==wire10[0] or wire7[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                                                if wire8[e]==wire9[0] or wire8[e]==wire9[1] or wire8[e]==wire10[0] or wire8[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                                                if wire9[e]==wire10[0] or wire9[e]==wire10[1]:
+                                                    print("A letter is used more than once. Rewiring...")
+                                                    rewireplugs()
+                
         if wirenum>10:
             rewire=input("All wires used. Would you like to rewire them? (y/n) ")
             if rewire=="y":
@@ -301,13 +477,16 @@ def plugboardsetup():
     
 def rewireplugs():
     global wirenum
+    global wire1,wire2,wire3,wire4,wire5,wire6,wire7,wire8,wire9,wire10
     wirenum=0
     wire1,wire2,wire3,wire4,wire5,wire6,wire7,wire8,wire9,wire10=[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]
     plugboardsetup()
     
 def displayplugs():
     plug="{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}{:>3}-{:<3}"
-    print(plug.format(wire1[0],wire1[1],wire2[0],wire2[1],wire3[0],wire3[1],wire4[0],wire4[1],wire5[0],wire5[1],wire6[0],wire6[1],wire7[0],wire7[1],wire8[0],wire8[1],wire9[0],wire9[1],wire10[0],wire10[1]))
+    plugout=plug.format(wire1[0],wire1[1],wire2[0],wire2[1],wire3[0],wire3[1],wire4[0],wire4[1],wire5[0],wire5[1],wire6[0],wire6[1],wire7[0],wire7[1],wire8[0],wire8[1],wire9[0],wire9[1],wire10[0],wire10[1])
+    plugout=plugout.upper()
+    print(plugout)
     
 def plugboard():
     for s in range(len(messagelist)):
@@ -393,11 +572,11 @@ def outplugboard():
             if finmessage[s]==wire1[0] and w!=1:
                 finmessage[s]=wire1[1]
                 w+=1
-                print(finmessage[s],wire1[1])
+                #print(finmessage[s],wire1[1])
             if finmessage[s]==wire1[1] and w!=1:
                 finmessage[s]=wire1[0]
                 w+=1
-                print(finmessage[s],wire1[0])
+                #print(finmessage[s],wire1[0])
         if finmessage[s]==wire2[0] or finmessage[s]==wire2[1]:
             if finmessage[s]==wire2[0] and w!=1:
                 finmessage[s]=wire2[1]
